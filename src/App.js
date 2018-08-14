@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import SearchArea from './SearchArea.js'
+import MapArea from './MapArea.js'
+import InfoArea from './InfoArea.js'
+import './App.css'
 
 class App extends Component {
   render() {
     return (
-      <SearchArea />
-      <MapArea />
-      <InfoArea />
+      <div className="App">
+        <SearchArea />
+        <MapArea />
+        <InfoArea />
+      </div>
     );
   }
 }
 
-export default App;
+export default App
