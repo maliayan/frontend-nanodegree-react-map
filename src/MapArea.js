@@ -1,6 +1,6 @@
 import React from 'react'
-import { compose, withProps } from 'recompose'
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
+import { compose, withProps, withStateHandlers } from 'recompose'
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
 
 const MapComponent = compose(
   withProps({
@@ -9,6 +9,13 @@ const MapComponent = compose(
     containerElement: <div style={{ height: `100vh` }} />,
     mapElement: <div style={{ height: `100%` }} />,
   }),
+  withStateHandlers(() => ({
+      isOpen: false,
+    }), {
+      onToggleOpen: ({ isOpen }) => () => ({
+        isOpen: !isOpen,
+      })
+  }),
   withScriptjs,
   withGoogleMap
 )((props) =>
@@ -16,7 +23,17 @@ const MapComponent = compose(
     defaultZoom={14}
     defaultCenter={{ lat: 41.008458, lng: 28.980153 }}
   >
-    {props.isMarkerShown && <Marker position={{ lat: 41.008458, lng: 28.980153 }} onClick={props.onMarkerClick} />}
+    {props.isMarkerShown &&
+      <Marker
+        position={{ lat: 41.008458, lng: 28.980153 }}
+        onClick={props.onMarkerClick}
+        onClick={props.onToggleOpen}
+      >
+        {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
+          <div>123</div>
+        </InfoWindow>}
+      </Marker>
+    }
   </GoogleMap>
 )
 
