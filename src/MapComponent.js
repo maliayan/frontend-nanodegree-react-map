@@ -25,8 +25,8 @@ const MapComponent = compose(
   withGoogleMap
 )((props) =>
   <GoogleMap
-    defaultZoom={14}
-    defaultCenter={{ lat: 41.008458, lng: 28.980153 }}
+    defaultZoom={11}
+    defaultCenter={{ lat: 41.012246, lng: 29.037676 }}
   >
     {props.isMarkerShown && props.markers.map(marker => (
       <Marker
@@ -35,7 +35,10 @@ const MapComponent = compose(
         onClick={()=>{ props.showInfo(marker.id)} }
       >
         {props.isOpen && props.infoId === marker.id  &&  <InfoWindow onCloseClick={props.showInfo}>
-          <div>123</div>
+          <div>
+            <h3>{marker.name}</h3>
+            <h4>{marker.type}</h4>
+          </div>
         </InfoWindow>}
       </Marker>
     ))}
