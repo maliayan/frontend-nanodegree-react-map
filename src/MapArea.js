@@ -1,46 +1,36 @@
-import React from 'react'
-import { compose, withProps, withStateHandlers } from 'recompose'
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
+import React, { Component } from 'react'
+import MapComponent from './MapComponent.js'
 
-const MapComponent = compose(
-  withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyA90aYQQIlffh6rcT1ELmUCtMaqBQqnz1I&v=3.exp&libraries=geometry,drawing,places",
-    loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `100vh` }} />,
-    mapElement: <div style={{ height: `100%` }} />,
-  }),
-  withStateHandlers(() => ({
-      isOpen: false,
-    }), {
-      onToggleOpen: ({ isOpen }) => () => ({
-        isOpen: !isOpen,
-      })
-  }),
-  withScriptjs,
-  withGoogleMap
-)((props) =>
-  <GoogleMap
-    defaultZoom={14}
-    defaultCenter={{ lat: 41.008458, lng: 28.980153 }}
-  >
-    {props.isMarkerShown &&
-      <Marker
-        position={{ lat: 41.008458, lng: 28.980153 }}
-        onClick={props.onMarkerClick}
-        onClick={props.onToggleOpen}
-      >
-        {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
-          <div>123</div>
-        </InfoWindow>}
-      </Marker>
+class MapArea extends Component {
+  state = {markers:
+    [
+        {
+          "id": 1,
+          "longitude": 28.980153,
+          "latitude": 41.008458
+        },
+        {
+          "id": 2,
+          "longitude": 28.980154,
+          "latitude": 41.008459
+        },
+        {
+          "id": 3,
+          "longitude": 30.980153,
+          "latitude": 40.008458
+        },
+        {
+          "id": 4,
+          "longitude": 29.980153,
+          "latitude": 40.008458
+        },
+        {
+          "id": 5,
+          "longitude": 28.980153,
+          "latitude": 38.008458
+        }
+      ]
     }
-  </GoogleMap>
-)
-
-class MapArea extends React.PureComponent {
-  state = {
-    isMarkerShown: false,
-  }
 
   componentDidMount() {
     this.delayedShowMarker()
@@ -60,6 +50,7 @@ class MapArea extends React.PureComponent {
   render() {
     return (
       <MapComponent
+        markers={this.state.markers}
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
       />
