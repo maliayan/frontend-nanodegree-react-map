@@ -1,6 +1,7 @@
 import React from 'react'
 import { compose, withProps, withStateHandlers } from 'recompose'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
+import FoursquareInfo from './FoursquareInfo.js'
 
 const MapComponent = compose(
   withProps({
@@ -37,7 +38,10 @@ const MapComponent = compose(
         {props.isOpen && props.infoId === marker.id  &&  <InfoWindow onCloseClick={props.showInfo}>
           <div>
             <h3>{marker.name}</h3>
-            <h4>{marker.type}</h4>
+            <h5>{marker.type}</h5>
+            <FoursquareInfo
+              ll={marker.ll}
+            />
           </div>
         </InfoWindow>}
       </Marker>
