@@ -17,7 +17,7 @@ class MapArea extends Component {
           "latitude": 40.981700,
           "longitude": 29.022839,
           "name": "Meşhur Dondurmacı Ali Usta",
-          "category": "Icecream",
+          "category": "Ice Cream",
           "venueId": '4c00177b369476b078d88e1f'
         },
         {
