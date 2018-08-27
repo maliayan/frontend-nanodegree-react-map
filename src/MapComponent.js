@@ -26,8 +26,8 @@ const MapComponent = compose(
   withGoogleMap
 )((props) =>
   <GoogleMap
-    defaultZoom={11}
-    defaultCenter={{ lat: 41.012246, lng: 29.037676 }}
+    defaultZoom={16}
+    defaultCenter={{ lat: 40.984569, lng: 29.024500 }}
   >
     {props.isMarkerShown && props.markers.map(marker => (
       <Marker
@@ -38,7 +38,7 @@ const MapComponent = compose(
         {props.isOpen && props.infoId === marker.id  &&  <InfoWindow onCloseClick={props.showInfo}>
           <div>
             <h3>{marker.name}</h3>
-            <h5>{marker.type}</h5>
+            <h5>{marker.category}</h5>
             <FoursquareInfo
               venueId={marker.venueId}
             />

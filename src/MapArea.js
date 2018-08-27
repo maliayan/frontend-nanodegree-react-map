@@ -5,49 +5,60 @@ class MapArea extends Component {
   state = {markers:
     [
         {
-          "id": "preschool",
-          "latitude": 40.9760256,
-          "longitude": 28.8768765,
-          "name": "Gürkan Playschool",
-          "type": "Preschool",
-          "ll": '40.9760256,28.8768765',
-          "venueId": '4ba63359f964a5200b3b39e3'
+          "id": "rembetiko",
+          "latitude": 40.981402,
+          "longitude": 29.023617,
+          "name": "Rembetiko Nargile Cafe",
+          "category": "Hookah",
+          "venueId": '4bd0e95eb221c9b667bdd4d0'
         },
         {
-          "id": "elementary-school",
-          "latitude": 40.975829,
-          "longitude": 28.8747183,
-          "name": "Pilot Cengiz Topel Elementary School",
-          "type": "Elementary School",
-          "ll": '40.975829,28.8747183',
-          "venueId": '4ba63359f964a5200b3b39e3'
+          "id": "aliusta",
+          "latitude": 40.981700,
+          "longitude": 29.022839,
+          "name": "Meşhur Dondurmacı Ali Usta",
+          "category": "Icecream",
+          "venueId": '4c00177b369476b078d88e1f'
         },
         {
-          "id": "high-school",
-          "latitude": 41.0099088,
-          "longitude": 28.9737057,
-          "name": "Cagaloglu High School",
-          "type": "High School",
-          "ll": '41.0099088,28.9737057',
-          "venueId": '4ba63359f964a5200b3b39e3'
+          "id": "kirinti",
+          "latitude": 40.981665,
+          "longitude": 29.022206,
+          "name": "Kırıntı Moda",
+          "category": "Fast Food",
+          "venueId": '4b9bb122f964a5209f1a36e3'
         },
         {
-          "id": "undergraduate-program",
-          "latitude": 40.8923449,
-          "longitude": 29.3756209,
-          "name": "Sabanci University",
-          "type": "Undergraduate Program",
-          "ll": '40.8923449,29.3756209',
-          "venueId": '4ba63359f964a5200b3b39e3'
+          "id": "manifesto",
+          "latitude": 40.985544,
+          "longitude": 29.026222,
+          "name": "Coffee Manifesto Moda",
+          "category": "Coffee",
+          "venueId": '58642f10a36ecd3c73ac6192'
         },
         {
-          "id": "graduate-program",
-          "latitude": 41.0666846,
-          "longitude": 28.9437617,
-          "name": "Istanbul Bilgi University",
-          "type": "Graduate Program",
-          "ll": '41.0666846,28.9437617',
-          "venueId": '4ba63359f964a5200b3b39e3'
+          "id": "pellicano",
+          "latitude": 40.983456,
+          "longitude": 29.029845,
+          "name": "Pizzeria Il Pellicano",
+          "category": "Pizza",
+          "venueId": '559f995c498ecc935355416e'
+        },
+        {
+          "id": "zapata",
+          "latitude": 40.984152,
+          "longitude": 29.029171,
+          "name": "Zapata Moda",
+          "category": "Burger",
+          "venueId": '56f59b64498ed9041e759d0b'
+        },
+        {
+          "id": "basta",
+          "latitude": 40.987765,
+          "longitude": 29.026236,
+          "name": "Basta Street Food Bar",
+          "category": "Gourmet Street Food",
+          "venueId": '570ffbcc498e435e7d4b08ca'
         }
       ]
     }
