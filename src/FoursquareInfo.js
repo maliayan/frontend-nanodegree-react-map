@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
 var foursquare = require('react-foursquare')({
-  clientID: 'NS11U2SEJ5E4UUP0XHK4UCOSCMSTGO4QRSOU0RJTVFFJ4T2J',
-  clientSecret: '15VGOO0NWSOQGR1W45YG3SI4JZHMQBG2PFVSZ3XX2ALRCX2N'
+  clientID: 'WNMXE4FYGUJSW3XUUMHFF2TLPAAD2NL13KSIZXXU10V0WWCA',
+  clientSecret: 'SZBZHYOQKUGR5A4PJZIFU1SDMC1N13AOIAUB5V4RQQWPMEDQ'
 });
 
 export default class FoursquareInfo extends Component {
@@ -11,27 +11,26 @@ export default class FoursquareInfo extends Component {
   constructor(props) {
        super(props);
        this.state = {
-         items: []
+         photos: []
        };
      }
 
     componentDidMount() {
       var params = {
-        "query": 'cafe',
-        "ll": this.props.ll,
-        "v": '20180826'
+        "venue_id": '4ba63359f964a5200b3b39e3'
       };
-      foursquare.venues.getVenues(params)
+      foursquare.venues.getVenuePhotos(params)
         .then(res=> {
-          this.setState({ items: res.response.venues });
+          this.setState({ photos: res.response.photos.items });
         });
     }
 
   render() {
     return (
     <div>
-        <div>Items:</div>
-        { this.state.items.map(item=> { return <div key={item.id}>{item.name}</div>}) }
+        { this.state.photos.map(photo => {
+          return <div><img src={ photo.prefix + "100x100" + photo.suffix } /></div>
+        }) }
     </div>
   )
   }

@@ -40,7 +40,7 @@ const MapComponent = compose(
             <h3>{marker.name}</h3>
             <h5>{marker.type}</h5>
             <FoursquareInfo
-              ll={marker.ll}
+              venueId={marker.venueId}
             />
           </div>
         </InfoWindow>}

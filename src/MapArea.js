@@ -10,7 +10,8 @@ class MapArea extends Component {
           "longitude": 28.8768765,
           "name": "Gürkan Playschool",
           "type": "Preschool",
-          "ll": '40.9760256,28.8768765'
+          "ll": '40.9760256,28.8768765',
+          "venueId": '4ba63359f964a5200b3b39e3'
         },
         {
           "id": "elementary-school",
@@ -18,7 +19,8 @@ class MapArea extends Component {
           "longitude": 28.8747183,
           "name": "Pilot Cengiz Topel Elementary School",
           "type": "Elementary School",
-          "ll": '40.975829,28.8747183'
+          "ll": '40.975829,28.8747183',
+          "venueId": '4ba63359f964a5200b3b39e3'
         },
         {
           "id": "high-school",
@@ -26,7 +28,8 @@ class MapArea extends Component {
           "longitude": 28.9737057,
           "name": "Cagaloglu High School",
           "type": "High School",
-          "ll": '41.0099088,28.9737057'
+          "ll": '41.0099088,28.9737057',
+          "venueId": '4ba63359f964a5200b3b39e3'
         },
         {
           "id": "undergraduate-program",
@@ -34,7 +37,8 @@ class MapArea extends Component {
           "longitude": 29.3756209,
           "name": "Sabanci University",
           "type": "Undergraduate Program",
-          "ll": '40.8923449,29.3756209'
+          "ll": '40.8923449,29.3756209',
+          "venueId": '4ba63359f964a5200b3b39e3'
         },
         {
           "id": "graduate-program",
@@ -42,7 +46,8 @@ class MapArea extends Component {
           "longitude": 28.9437617,
           "name": "Istanbul Bilgi University",
           "type": "Graduate Program",
-          "ll": '41.0666846,28.9437617'
+          "ll": '41.0666846,28.9437617',
+          "venueId": '4ba63359f964a5200b3b39e3'
         }
       ]
     }
