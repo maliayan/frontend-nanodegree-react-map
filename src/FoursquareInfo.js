@@ -16,6 +16,7 @@ export default class FoursquareInfo extends Component {
      }
 
     componentDidMount() {
+      // Required VENUE_ID to fetch data
       var params = {
         "venue_id": '4ba63359f964a5200b3b39e3'
       };

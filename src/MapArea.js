@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import MapComponent from './MapComponent.js'
 
 class MapArea extends Component {
+  // Hard-coded place information
   state = {markers:
     [
         {

@@ -3,11 +3,13 @@ import FilteredVenueList from './FilteredVenueList.js'
 import './App.css'
 
 class VenueList extends Component {
+  // Binding for handling
   constructor(props) {
     super(props)
     this.filterVenues = this.filterVenues.bind(this)
   }
 
+  // Filtering venues list
   filterVenues(event) {
     var updatedMarkers = this.props.markers
     updatedMarkers = updatedMarkers.filter((marker) => {
@@ -50,6 +52,7 @@ class VenueList extends Component {
             marginBottom: `24px`
           }}
         />
+          {/* Component for filtered results */}
         <FilteredVenueList
           filteredMarkers={this.state.filteredMarkers}
           showInfo={this.props.showInfo}
