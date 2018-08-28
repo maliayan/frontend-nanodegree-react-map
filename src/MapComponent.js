@@ -44,7 +44,8 @@ const MapComponent = compose(
           <Marker
             key={marker.id}
             position={{ lat: marker.latitude, lng: marker.longitude }}
-            onClick={ ()=>{ props.showInfo(marker.id) } } // Opening InfoWindow with clicking
+            onClick={ ()=>{ props.showInfo(marker.id) } }
+            onKeyPress={ ()=>{ props.showInfo(marker.id) } }
           >
             {props.isOpen && props.infoId === marker.id  &&  <InfoWindow onCloseClick={props.showInfo}>
               <div>

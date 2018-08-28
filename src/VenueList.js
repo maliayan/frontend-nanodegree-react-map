@@ -30,6 +30,9 @@ class VenueList extends Component {
       <div className="venueList">
         <h1>My Favorite Venues<br/>in Moda, Kadikoy, Istanbul</h1>
         <input
+          tabIndex={1}
+          role="search"
+          aria-labelledby="filter"
           className="searchBox"
           type="text"
           placeholder="Type something to filter venues"
