@@ -30,6 +30,7 @@ class VenueList extends Component {
       <div className="venueList">
         <h1>My Favorite Venues<br/>in Moda, Kadikoy, Istanbul</h1>
         <input
+          className="searchBox"
           type="text"
           placeholder="Type something to filter venues"
           onChange={this.filterVenues}
