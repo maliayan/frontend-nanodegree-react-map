@@ -30,7 +30,7 @@ export default class FoursquareInfo extends Component {
     return (
     <div>
         { this.state.photos.map(photo => {
-          return <div><img src={ photo.prefix + "100x100" + photo.suffix } alt={ "Photo of " + this.props.name } /><p>The photo is provided by Foursquare</p></div>
+          return <div key={photo.id}><img src={ photo.prefix + "100x100" + photo.suffix } alt={ "Photo of " + this.props.name } /><p>The photo is provided by Foursquare</p></div>
         }) }
     </div>
   )

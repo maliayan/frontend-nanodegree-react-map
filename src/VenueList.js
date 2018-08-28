@@ -19,11 +19,7 @@ class VenueList extends Component {
     this.setState({ filteredMarkers: updatedMarkers })
   }
 
-  getInitialState() {
-     return {
-       filteredMarkers: []
-     }
-  }
+  state = { filteredMarkers: [] }
 
   componentWillMount() {
     this.setState({filteredMarkers: this.props.markers})
