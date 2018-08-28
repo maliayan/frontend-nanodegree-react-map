@@ -1,6 +1,7 @@
 import React from 'react'
 import { compose, withProps, withStateHandlers } from 'recompose'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
+import VenueList from './VenueList.js'
 import FoursquareInfo from './FoursquareInfo.js'
 
 const MapComponent = compose(
@@ -25,28 +26,35 @@ const MapComponent = compose(
   withScriptjs,
   withGoogleMap
 )((props) =>
-  <GoogleMap
-    defaultZoom={16}
-    defaultCenter={{ lat: 40.984569, lng: 29.024500 }}
-  >
-    {props.isMarkerShown && props.markers.map(marker => (
-      <Marker
-        key={marker.id}
-        position={{ lat: marker.latitude, lng: marker.longitude }}
-        onClick={()=>{ props.showInfo(marker.id)} }
-      >
-        {props.isOpen && props.infoId === marker.id  &&  <InfoWindow onCloseClick={props.showInfo}>
-          <div>
-            <h3>{marker.name}</h3>
-            <h5>{marker.category}</h5>
-            <FoursquareInfo
-              venueId={marker.venueId}
-            />
-          </div>
-        </InfoWindow>}
-      </Marker>
-    ))}
-  </GoogleMap>
+  <div>
+    <VenueList
+      markers={props.markers}
+      showInfo={props.showInfo}
+    />
+    <GoogleMap
+      defaultZoom={16}
+      defaultCenter={{ lat: 40.984569, lng: 29.024500 }}
+    >
+      {props.isMarkerShown && props.markers.map(marker => (
+        <Marker
+          key={marker.id}
+          position={{ lat: marker.latitude, lng: marker.longitude }}
+          onClick={ ()=>{ props.showInfo(marker.id) } }
+        >
+          {props.isOpen && props.infoId === marker.id  &&  <InfoWindow onCloseClick={props.showInfo}>
+            <div>
+              <h3>{marker.name}</h3>
+              <h5>{marker.category}</h5>
+              <FoursquareInfo
+                venueId={marker.venueId}
+		            name={marker.name}
+              />
+            </div>
+          </InfoWindow>}
+        </Marker>
+      ))}
+    </GoogleMap>
+  </div>
 )
 
 export default MapComponent
