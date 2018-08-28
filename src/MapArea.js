@@ -60,7 +60,8 @@ class MapArea extends Component {
           "category": "Gourmet Street Food",
           "venueId": '570ffbcc498e435e7d4b08ca'
         }
-      ]
+      ],
+      isMarkerShown: false
     }
 
   componentDidMount() {

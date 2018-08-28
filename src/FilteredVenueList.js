@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 class FilteredVenueList extends Component {
 
   render() {
-    console.log(this.props.showInfo)
     return (
       <ul>
       {

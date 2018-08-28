@@ -1,6 +1,7 @@
 import React from 'react'
 import { compose, withProps, withStateHandlers } from 'recompose'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
+import ErrorBoundary from './ErrorBoundary.js'
 import VenueList from './VenueList.js'
 import FoursquareInfo from './FoursquareInfo.js'
 
@@ -13,7 +14,7 @@ const MapComponent = compose(
   }),
   withStateHandlers(() => ({
       isOpen: false,
-      infoId: null
+      infoId: null,
     }), {
       onToggleOpen: ({ isOpen }) => () => ({
         isOpen: !isOpen,
@@ -21,39 +22,41 @@ const MapComponent = compose(
       showInfo: ({ isOpen, infoId }) => (id) => ({
         isOpen: infoId !== id || !isOpen,
         infoId: id
-      }),
+      })
   }),
   withScriptjs,
   withGoogleMap
 )((props) =>
   <div>
-    <VenueList
-      markers={props.markers}
-      showInfo={props.showInfo}
-    />
-    <GoogleMap
-      defaultZoom={16}
-      defaultCenter={{ lat: 40.984569, lng: 29.024500 }}
-    >
-      {props.isMarkerShown && props.markers.map(marker => (
-        <Marker
-          key={marker.id}
-          position={{ lat: marker.latitude, lng: marker.longitude }}
-          onClick={ ()=>{ props.showInfo(marker.id) } }
-        >
-          {props.isOpen && props.infoId === marker.id  &&  <InfoWindow onCloseClick={props.showInfo}>
-            <div>
-              <h3>{marker.name}</h3>
-              <h5>{marker.category}</h5>
-              <FoursquareInfo
-                venueId={marker.venueId}
-		            name={marker.name}
-              />
-            </div>
-          </InfoWindow>}
-        </Marker>
-      ))}
-    </GoogleMap>
+    <ErrorBoundary errorMessage="Something went wrong! Sorry!">
+      <VenueList
+        markers={props.markers}
+        showInfo={props.showInfo}
+      />
+      <GoogleMap
+        defaultZoom={16}
+        defaultCenter={{ lat: 40.984569, lng: 29.024500 }}
+      >
+        {props.isMarkerShown && props.markers.map(marker => (
+          <Marker
+            key={marker.id}
+            position={{ lat: marker.latitude, lng: marker.longitude }}
+            onClick={ ()=>{ props.showInfo(marker.id) } }
+          >
+            {props.isOpen && props.infoId === marker.id  &&  <InfoWindow onCloseClick={props.showInfo}>
+              <div>
+                <h3>{marker.name}</h3>
+                <h5>{marker.category}</h5>
+                <FoursquareInfo
+                  venueId={marker.venueId}
+              		name={marker.name}
+                />
+              </div>
+            </InfoWindow>}
+          </Marker>
+        ))}
+      </GoogleMap>
+    </ErrorBoundary>
   </div>
 )
 
