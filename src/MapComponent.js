@@ -48,9 +48,8 @@ const MapComponent = compose(
           >
             {props.isOpen && props.infoId === marker.id  &&  <InfoWindow onCloseClick={props.showInfo}>
               <div>
-                {/* Opening InfoWindow with clicking */}
                 <h3>{marker.name}</h3>
-                <h5>{marker.category}</h5>
+                <p><span style={{ fontWeight: 'bold' }}>Category:</span> {marker.category}</p>
                 {/* Component for the photo provided by Foursquare */}
                 <FoursquareInfo
                 	venueId={marker.venueId}
