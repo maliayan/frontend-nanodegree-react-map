@@ -12,6 +12,33 @@ This is my submission for the capstone project of "Google Front-End Developer Na
 
 To install and launch the project:
 
-* clone the repository
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
+* Clone the repository with `git clone https://github.com/maliayan/frontend-nanodegree-react-map.git`
+* Install all project dependencies with `npm install`
+* Start the development server with `npm start`
+* Run a production build with `npm run build`
+  * PS: By default, [Create React App](https://github.com/facebookincubator/create-react-app) includes service worker in the production build.
+
+## Built with
+* [React](https://github.com/facebook/react)
+* [Create React App](https://github.com/facebookincubator/create-react-app)
+* [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial)
+* [React Google Maps](https://github.com/tomchentw/react-google-maps)
+* [Foursquare Places API](https://developer.foursquare.com/places-api)
+* [React Foursquare](https://github.com/foursquare/react-foursquare)
+* [recompose](https://github.com/acdlite/recompose)
+* [npm](https://github.com/npm/cli)
+
+## React Tree
+```
+<App />
+--- <MapArea />
+------ <MapComponent />
+--------- <VenueList />
+------------ <FilteredVenueList />
+--------- <GoogleMap />
+------------ <Marker />
+--------------- <InfoWindow />
+------------------ <FoursquareInfo />
+```
+
+## Bon Appetit!
