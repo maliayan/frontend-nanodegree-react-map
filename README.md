@@ -2,7 +2,7 @@
 
 ## About this Project
 
-This is my submission for the capstone project of "Google Front-End Developer Nanodegree Program". This project includes an web app which shows my favorite venues in Moda, Kadikoy, Istanbul.
+This is my submission for the capstone project of "Google Front-End Developer Nanodegree Program". This project includes an web app which shows some of my favorite venues in Kadikoy, Istanbul.
 
 * I created this project with [Create React App](https://github.com/facebookincubator/create-react-app).
 * Then I used [React Google Maps](https://github.com/tomchentw/react-google-maps) to integrate Google Maps to my project.

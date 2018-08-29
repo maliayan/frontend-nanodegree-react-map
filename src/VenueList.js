@@ -28,7 +28,7 @@ class VenueList extends Component {
   render() {
     return (
       <div className="venueList">
-        <h1>My Favorite Venues<br/>in Moda, Kadikoy, Istanbul</h1>
+        <h1>My Favorite Venues<br/>in Kadikoy, Istanbul</h1>
         <input
           tabIndex={1}
           role="search"
