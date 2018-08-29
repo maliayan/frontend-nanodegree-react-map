@@ -28,7 +28,7 @@ To install and launch the project:
 * [recompose](https://github.com/acdlite/recompose)
 * [npm](https://github.com/npm/cli)
 
-## React Tree
+## React Component Structure
 ```
 <App />
 --- <MapArea />
