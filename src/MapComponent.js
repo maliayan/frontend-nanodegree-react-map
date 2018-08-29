@@ -1,9 +1,13 @@
 import React from 'react'
 import { compose, withProps, withStateHandlers } from 'recompose'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
-import ErrorBoundary from './ErrorBoundary.js'
 import VenueList from './VenueList.js'
 import FoursquareInfo from './FoursquareInfo.js'
+import ErrorBoundary from './ErrorBoundary.js'
+
+window.gm_authFailure = function() {
+   alert('The map cannot be loaded, sorry! Please check the key for Google Maps API.');
+}
 
 // Used recompose to simplify the code
 const MapComponent = compose(
@@ -29,11 +33,12 @@ const MapComponent = compose(
   withGoogleMap
 )((props) =>
   <div>
-    <ErrorBoundary errorMessage="Something went wrong! Sorry!">
+    <ErrorBoundary>
       <VenueList
         markers={props.markers}
         showInfo={props.showInfo}
       />
+
       {/* Implementation of Google Maps */}
       <GoogleMap
         defaultZoom={16}
