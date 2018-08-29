@@ -1,3 +1,4 @@
+/* global google */
 import React from 'react'
 import { compose, withProps, withStateHandlers } from 'recompose'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
@@ -37,6 +38,7 @@ const MapComponent = compose(
       <VenueList
         markers={props.markers}
         showInfo={props.showInfo}
+        markerAnimation={props.markerAnimation}
       />
 
       {/* Implementation of Google Maps */}
@@ -49,8 +51,9 @@ const MapComponent = compose(
           <Marker
             key={marker.id}
             position={{ lat: marker.latitude, lng: marker.longitude }}
-            onClick={ ()=>{ props.showInfo(marker.id) } }
-            onKeyPress={ ()=>{ props.showInfo(marker.id) } }
+            onClick={ ()=>{ props.showInfo(marker.id); props.markerAnimation(marker.id) } }
+            onKeyPress={ ()=>{ props.showInfo(marker.id); props.markerAnimation(marker.id) } }
+            animation={marker.animate ? google.maps.Animation.BOUNCE : null}
           >
             {props.isOpen && props.infoId === marker.id  &&  <InfoWindow onCloseClick={props.showInfo}>
               <div>

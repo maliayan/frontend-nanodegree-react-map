@@ -56,6 +56,7 @@ class VenueList extends Component {
         <FilteredVenueList
           filteredMarkers={this.state.filteredMarkers}
           showInfo={this.props.showInfo}
+          markerAnimation={this.props.markerAnimation}
         />
       </div>
     )

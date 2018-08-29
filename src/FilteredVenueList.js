@@ -7,7 +7,7 @@ class FilteredVenueList extends Component {
       <ul>
       {
         this.props.filteredMarkers.map(marker => {
-          return <li tabIndex={2} role="link" key={marker.id} onClick={() => {this.props.showInfo.bind(this)(marker.id)}} onKeyPress={() => {this.props.showInfo.bind(this)(marker.id)}}>{marker.name}</li>
+          return <li tabIndex={2} role="link" key={marker.id} onClick={() => {this.props.showInfo.bind(this)(marker.id); this.props.markerAnimation.bind(this)(marker.id)}} onKeyPress={() => {this.props.showInfo.bind(this)(marker.id); this.props.markerAnimation.bind(this)(marker.id)}}>{marker.name}</li>
         })
       }
       </ul>

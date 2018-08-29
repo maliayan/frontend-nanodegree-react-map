@@ -80,12 +80,33 @@ class MapArea extends Component {
     this.delayedShowMarker()
   }
 
+  markerAnimation = (markerId) => {
+    this.setState((state) => ({
+      markers: state.markers.map((marker) => {
+        (marker.id === markerId) && (marker.animate = true);
+        return marker;
+      })
+    }), this.stopMarkerAnimation(markerId));
+  }
+
+  stopMarkerAnimation = (markerId) => {
+    setTimeout(() => {
+      this.setState((state) => ({
+        markers: state.markers.map((marker) => {
+          (marker.id === markerId) && (marker.animate = false);
+          return marker;
+        })
+      }));
+    });
+  }
+
   render() {
     return (
       <MapComponent
         markers={this.state.markers}
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
+        markerAnimation={this.markerAnimation}
       />
     )
   }
