@@ -1,4 +1,3 @@
-/*global event*/
 import React, { Component } from 'react'
 
 class FilteredVenueList extends Component {

@@ -39,6 +39,8 @@ const MapComponent = compose(
         markers={props.markers}
         showInfo={props.showInfo}
         markerAnimation={props.markerAnimation}
+        filteredMarkers={props.filteredMarkers}
+        filterVenues={props.filterVenues}
       />
 
       {/* Implementation of Google Maps */}
@@ -47,7 +49,7 @@ const MapComponent = compose(
         defaultCenter={{ lat: 40.984569, lng: 29.024500 }}
       >
         {/* Mapping the markers according to their information */}
-        {props.isMarkerShown && props.markers.map(marker => (
+        {props.isMarkerShown && props.filteredMarkers.map(marker => (
           <Marker
             key={marker.id}
             position={{ lat: marker.latitude, lng: marker.longitude }}

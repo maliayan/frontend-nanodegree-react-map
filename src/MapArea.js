@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 import MapComponent from './MapComponent.js'
 
 class MapArea extends Component {
+
+  // Binding for handling
+  constructor(props) {
+    super(props)
+    this.filterVenues = this.filterVenues.bind(this)
+  }
+
+
   // Hard-coded place information
   state = {markers:
     [
@@ -62,8 +70,23 @@ class MapArea extends Component {
           "venueId": '570ffbcc498e435e7d4b08ca'
         }
       ],
-      isMarkerShown: false
-    }
+    isMarkerShown: false,
+    filteredMarkers: []
+  }
+
+  // Filtering venues list
+  filterVenues(event) {
+    var updatedMarkers = this.state.markers
+    updatedMarkers = updatedMarkers.filter((marker) => {
+      return marker.name.toLowerCase().search(
+        event.target.value.toLowerCase()) !== -1
+    });
+    this.setState({ filteredMarkers: updatedMarkers })
+  }
+
+  componentWillMount() {
+    this.setState({filteredMarkers: this.state.markers})
+  }
 
   componentDidMount() {
     this.delayedShowMarker()
@@ -105,6 +128,8 @@ class MapArea extends Component {
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
         markerAnimation={this.markerAnimation}
+        filteredMarkers={this.state.filteredMarkers}
+        filterVenues={this.filterVenues}
       />
     )
   }

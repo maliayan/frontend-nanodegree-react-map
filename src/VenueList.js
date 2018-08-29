@@ -3,27 +3,6 @@ import FilteredVenueList from './FilteredVenueList.js'
 import './App.css'
 
 class VenueList extends Component {
-  // Binding for handling
-  constructor(props) {
-    super(props)
-    this.filterVenues = this.filterVenues.bind(this)
-  }
-
-  // Filtering venues list
-  filterVenues(event) {
-    var updatedMarkers = this.props.markers
-    updatedMarkers = updatedMarkers.filter((marker) => {
-      return marker.name.toLowerCase().search(
-        event.target.value.toLowerCase()) !== -1
-    });
-    this.setState({ filteredMarkers: updatedMarkers })
-  }
-
-  state = { filteredMarkers: [] }
-
-  componentWillMount() {
-    this.setState({filteredMarkers: this.props.markers})
-  }
 
   render() {
     return (
@@ -36,7 +15,7 @@ class VenueList extends Component {
           className="searchBox"
           type="text"
           placeholder="Type something to filter venues"
-          onChange={this.filterVenues}
+          onChange={this.props.filterVenues}
           style={{
             boxSizing: `border-box`,
             border: `1px solid transparent`,
@@ -54,7 +33,7 @@ class VenueList extends Component {
         />
           {/* Component for filtered results */}
         <FilteredVenueList
-          filteredMarkers={this.state.filteredMarkers}
+          filteredMarkers={this.props.filteredMarkers}
           showInfo={this.props.showInfo}
           markerAnimation={this.props.markerAnimation}
         />
