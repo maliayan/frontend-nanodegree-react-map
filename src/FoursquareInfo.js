@@ -24,7 +24,7 @@ class FoursquareInfo extends Component {
        })
        .catch(error => {
         alert(
-          "The photo cannot be loaded, sorry! Please check the clientID for Foursquare API."
+          "The photo cannot be loaded, sorry! Please check the clientID, clientSecret and request quota of Foursquare API."
         );
       });
    }
